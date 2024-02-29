@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class World : MonoBehaviour
+public sealed class World
 {
-    // Start is called before the first frame update
-    void Start()
+    private static readonly World _instance = new World();
+    private static GameObject[] _barnSpots;
+
+    static World()
     {
-        
+        _barnSpots = GameObject.FindGameObjectsWithTag("barn");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    private World() { }
+    public static World Instance { get { return _instance; } }
+    public static GameObject[] BarnSpots() { return _barnSpots; }
 }
