@@ -1875,6 +1875,8 @@ GameObject:
   - component: {fileID: 712763581221244040}
   - component: {fileID: 54439034210336758}
   - component: {fileID: 136692474315646870}
+  - component: {fileID: 5648846659057318632}
+  - component: {fileID: 7914109340758564998}
   m_Layer: 0
   m_Name: Cow
   m_TagString: Cow
@@ -1923,7 +1925,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 116
   m_CollisionDetection: 1
 --- !u!136 &136692474315646870
 CapsuleCollider:
@@ -1945,9 +1947,44 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.7797295
-  m_Height: 1.8226995
+  m_Height: 2.0419176
   m_Direction: 2
-  m_Center: {x: -0.1731856, y: 0.9529151, z: -0.008156778}
+  m_Center: {x: -0.1731856, y: 0.9529151, z: -0.010765915}
+--- !u!195 &5648846659057318632
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712763581221244047}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7914109340758564998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712763581221244047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 104a543cc622e3245bcd5b1bf8da992b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 0}
 --- !u!1 &712763581223368524
 GameObject:
   m_ObjectHideFlags: 0
