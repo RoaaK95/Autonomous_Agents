@@ -7,22 +7,26 @@ public class Cow : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Animate _animate;
-
+    [SerializeField] private GameObject _waterTrough;
 
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _animate = GetComponent<Animate>();
     }
-    
+    private void Start()
+    {
+        GoToWaterTrough();
+    }
     void Seek(Vector3 location)
     {
         _agent.stoppingDistance = 2.0f;
-        _agent.SetDestination(location);
         _animate.WalkAnimation();
+        _agent.SetDestination(location);
+
     }
     Vector3 _wanderTarget = Vector3.zero;
-    void Wander()
+    private void Wander()
     {
         float wanderRadius = 10.0f;
         float wanderDistance = 20.0f;
@@ -37,10 +41,21 @@ public class Cow : MonoBehaviour
         Seek(worldTarget);
 
     }
+
+    private void GoToWaterTrough()
+    {
+        Seek(_waterTrough.transform.position);
+        if (Vector3.Distance(transform.position, _waterTrough.transform.position) < 2f)
+        {
+            _agent.isStopped = true;
+        }
+    }
+
+ 
     void Update()
     {
         //Wander();
-        
+        // GoToWaterTrough();
     }
-    
+
 }

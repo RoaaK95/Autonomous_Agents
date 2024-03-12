@@ -10,6 +10,7 @@ TagManager:
   - Chicken
   - Sheep
   - barn
+  - Water
   layers:
   - Default
   - TransparentFX
