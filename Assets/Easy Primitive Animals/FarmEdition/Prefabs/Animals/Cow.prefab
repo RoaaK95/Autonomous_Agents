@@ -1876,6 +1876,7 @@ GameObject:
   - component: {fileID: 54439034210336758}
   - component: {fileID: 136692474315646870}
   - component: {fileID: 5648846659057318632}
+  - component: {fileID: 3526628512004903031}
   - component: {fileID: 5499992923998001322}
   m_Layer: 0
   m_Name: Cow
@@ -1960,7 +1961,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1972,6 +1973,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3526628512004903031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712763581221244047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 432b61a0f9bfe9e4d9874d521a056533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _waterTrough: {fileID: 0}
 --- !u!114 &5499992923998001322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1984,6 +1998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63475bb77a534314f8a47a705d2d541e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isWalking: 0
   _FrontLegL: {fileID: 712763580947689442}
   _FrontLegR: {fileID: 712763581070966099}
   _RearLegL: {fileID: 712763580022872977}
