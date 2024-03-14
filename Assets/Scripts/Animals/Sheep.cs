@@ -9,6 +9,7 @@ public class Sheep : MonoBehaviour
     private Animate _animate;
     private float _playerSpeed;
     private float _stoppingDistance;
+    private float _speed;
     [SerializeField] private GameObject _player;
     private int _invokeX = 2;
 
@@ -23,6 +24,7 @@ public class Sheep : MonoBehaviour
     {
         _playerSpeed = Player.Speed;
         _stoppingDistance = 3.0f;
+        _speed = 2.0f;
     }
 
     void Seek(Vector3 location)
