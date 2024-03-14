@@ -3460,6 +3460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4020c71cdabcbe541b7904c43a5858be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 6638714619757978438}
 --- !u!195 &964056636
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3470,7 +3471,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -3952,7 +3953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1229453735
 Transform:
   m_ObjectHideFlags: 0

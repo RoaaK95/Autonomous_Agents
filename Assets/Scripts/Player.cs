@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float _speed = 10.0f;
+    [SerializeField] private static float _speed = 10.0f;
     [SerializeField] private float _rotSpeed = 100.0f;
     private float _xBound = 17.0f;
     private float _zBound = 18.0f;
@@ -15,15 +15,15 @@ public class Player : MonoBehaviour
         PlayerMovement();
         KeepPlayerInBounds();
     }
-
+    public static float Speed { get { return _speed; } }
     void PlayerMovement()
     {
         float translation = Input.GetAxis("Vertical");
         float rotation = Input.GetAxis("Horizontal");
-        float moveForward = translation * _speed ;
-        float rotate = rotation * _rotSpeed ;
-        transform.Translate(0, 0, moveForward* Time.deltaTime);
-        transform.Rotate(0, rotate*Time.deltaTime, 0);
+        float moveForward = translation * _speed;
+        float rotate = rotation * _rotSpeed;
+        transform.Translate(0, 0, moveForward * Time.deltaTime);
+        transform.Rotate(0, rotate * Time.deltaTime, 0);
     }
 
     void KeepPlayerInBounds()
