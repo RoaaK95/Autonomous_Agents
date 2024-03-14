@@ -7,6 +7,8 @@ public class Cow : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Animate _animate;
+    private float _stoppingDistance;
+    private float _speed;
     [SerializeField] private GameObject _waterTrough;
     private int _invokeX = 2;
 
@@ -15,10 +17,14 @@ public class Cow : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _animate = GetComponent<Animate>();
     }
-
+    private void Start()
+    {
+        _stoppingDistance = 1.0f;
+        _speed = 1.0f;
+    }
     void Seek(Vector3 location)
     {
-        _agent.stoppingDistance = 1.0f;
+        _agent.stoppingDistance = _stoppingDistance;
         _animate._isWalking = true;
         _agent.isStopped = false;
         _agent.SetDestination(location);
@@ -44,11 +50,19 @@ public class Cow : MonoBehaviour
     private void GoToWaterTrough()
     {
         Seek(_waterTrough.transform.position);
-        if (Vector3.Distance(_waterTrough.transform.position, transform.position) <= 1f)
+
+    }
+    private void Animation(GameObject target)
+    {
+        if (Vector3.Distance(target.transform.position, transform.position) <= _stoppingDistance)
         {
             _animate._isWalking = false;
         }
-
+        else
+        {
+            _animate._isWalking = true;
+        }
+        _animate.WalkAnimation();
     }
     private bool TargetInRange(GameObject target)
     {
@@ -86,7 +100,7 @@ public class Cow : MonoBehaviour
 
         }
 
-        _animate.WalkAnimation();
+        Animation(_waterTrough);
 
     }
 
