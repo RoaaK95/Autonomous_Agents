@@ -20,7 +20,7 @@ public class Cow : MonoBehaviour
     private void Start()
     {
         _stoppingDistance = 1.0f;
-        _speed = 1.0f;
+        _agent.speed= _speed;
     }
     void Seek(Vector3 location)
     {

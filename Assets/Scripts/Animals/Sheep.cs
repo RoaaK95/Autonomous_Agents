@@ -24,7 +24,7 @@ public class Sheep : MonoBehaviour
     {
         _playerSpeed = Player.Speed;
         _stoppingDistance = 3.0f;
-        _speed = 2.0f;
+        _agent.speed = _speed;
     }
 
     void Seek(Vector3 location)
