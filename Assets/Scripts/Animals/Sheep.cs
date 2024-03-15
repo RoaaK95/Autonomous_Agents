@@ -9,7 +9,6 @@ public class Sheep : MonoBehaviour
     private Animate _animate;
     private float _playerSpeed;
     private float _stoppingDistance;
-    private float _speed;
     [SerializeField] private GameObject _player;
     private int _invokeX = 2;
 
@@ -24,7 +23,7 @@ public class Sheep : MonoBehaviour
     {
         _playerSpeed = Player.Speed;
         _stoppingDistance = 3.0f;
-        _agent.speed = _speed;
+        _agent.speed = 2.0f;
     }
 
     void Seek(Vector3 location)
@@ -102,14 +101,14 @@ public class Sheep : MonoBehaviour
             {
                 Wander();
                 coolDown = true;
-                Debug.Log("Wander invoked");
-                Invoke("BehaviourCoolDown", 15);
+                Debug.Log(name + " Wander invoked");
+                Invoke("BehaviourCoolDown", 8);
             }
             else
             {
                 Pursue();
                 coolDown = true;
-                Debug.Log("Pursue invoked");
+                Debug.Log(name + " Pursue invoked");
                 Invoke("BehaviourCoolDown", 1f);
 
             }

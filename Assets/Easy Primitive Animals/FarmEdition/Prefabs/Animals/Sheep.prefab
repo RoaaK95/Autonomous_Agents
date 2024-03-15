@@ -644,6 +644,9 @@ GameObject:
   - component: {fileID: 2692594753747960194}
   - component: {fileID: 54689378711371506}
   - component: {fileID: 136432924633376916}
+  - component: {fileID: 6172915159176233890}
+  - component: {fileID: 5012660441879807187}
+  - component: {fileID: 1765676994913267390}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Sheep
@@ -717,6 +720,58 @@ CapsuleCollider:
   m_Height: 1.4
   m_Direction: 2
   m_Center: {x: -0, y: 0.5551874, z: 0}
+--- !u!195 &6172915159176233890
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2692594753747960197}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 2
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &5012660441879807187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2692594753747960197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4020c71cdabcbe541b7904c43a5858be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+--- !u!114 &1765676994913267390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2692594753747960197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63475bb77a534314f8a47a705d2d541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isWalking: 0
+  _FrontLegL: {fileID: 2692594754021335784}
+  _FrontLegR: {fileID: 2692594753864511577}
+  _RearLegL: {fileID: 2692594754912523931}
+  _RearLegR: {fileID: 2692594755340528683}
 --- !u!1 &2692594753769500436
 GameObject:
   m_ObjectHideFlags: 0

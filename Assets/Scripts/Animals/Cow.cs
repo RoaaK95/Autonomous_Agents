@@ -8,7 +8,6 @@ public class Cow : MonoBehaviour
     private NavMeshAgent _agent;
     private Animate _animate;
     private float _stoppingDistance;
-    private float _speed;
     [SerializeField] private GameObject _waterTrough;
     private int _invokeX = 2;
 
@@ -20,7 +19,7 @@ public class Cow : MonoBehaviour
     private void Start()
     {
         _stoppingDistance = 1.0f;
-        _agent.speed= _speed;
+        _agent.speed = 1.0f;
     }
     void Seek(Vector3 location)
     {
@@ -85,7 +84,7 @@ public class Cow : MonoBehaviour
             {
                 GoToWaterTrough();
                 coolDown = true;
-                Debug.Log("go to water invoked");
+                Debug.Log(name + " Go to water invoked");
                 Invoke("BehaviourCoolDown", 10);
 
             }
@@ -93,8 +92,8 @@ public class Cow : MonoBehaviour
             {
                 Wander();
                 coolDown = true;
-                Debug.Log("Wander invoked");
-                Invoke("BehaviourCoolDown", 15);
+                Debug.Log(name + " Wander invoked");
+                Invoke("BehaviourCoolDown", 12);
 
             }
 
