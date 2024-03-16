@@ -8,6 +8,7 @@ public class Pig : MonoBehaviour
     private Animate _animate;
     private float _stoppingDistance;
     [SerializeField] private GameObject _player;
+    private int _invokeX = 2;
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -18,7 +19,29 @@ public class Pig : MonoBehaviour
         _agent.speed = 2.6f;
         _stoppingDistance = 3.0f;
     }
+    void Seek(Vector3 location)
+    {
+        _agent.stoppingDistance = _stoppingDistance;
+        _animate._isWalking = true;
+        _agent.isStopped = false;
+        _agent.SetDestination(location);
+    }
+    Vector3 _wanderTarget = Vector3.zero;
+    private void Wander()
+    {
+        float wanderRadius = 4.0f;
+        float wanderDistance = 10.0f;
+        float wanderJitter = 2.0f;
 
+        _wanderTarget += new Vector3(Random.Range(-1.0f, 1.0f) * wanderJitter, 0, Random.Range(-1.0f, 1.0f) * wanderJitter);
+        _wanderTarget.Normalize();
+        _wanderTarget *= wanderRadius;
+
+        Vector3 localTarget = _wanderTarget + new Vector3(0, 0, wanderDistance);
+        Vector3 worldTarget = gameObject.transform.InverseTransformVector(localTarget);
+        Seek(worldTarget);
+
+    }
     private bool TargetInRange(GameObject target)
     {
         if (Vector3.Distance(transform.position, target.transform.position) < 10)
@@ -27,6 +50,7 @@ public class Pig : MonoBehaviour
         }
         return false;
     }
+
     bool coolDown = false;
     private void BehaviourCoolDown()
     {
@@ -47,6 +71,16 @@ public class Pig : MonoBehaviour
     }
     void Update()
     {
-        
+        if (!coolDown)
+        {
+            if (!TargetInRange(_player))
+            {
+                Wander();
+                coolDown = true;
+                Invoke("BehaviourCoolDown", 6f);
+            }
+
+        }
+        _animate.WalkAnimation();
     }
 }
