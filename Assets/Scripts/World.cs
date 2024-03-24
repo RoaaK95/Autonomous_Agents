@@ -5,14 +5,14 @@ using UnityEngine;
 public sealed class World
 {
     private static readonly World _instance = new World();
-    private static GameObject[] _barnSpots;
+    private static GameObject[] _hideSpots;
 
     static World()
     {
-        _barnSpots = GameObject.FindGameObjectsWithTag("barn");
+        _hideSpots= GameObject.FindGameObjectsWithTag("hide");
     }
 
     private World() { }
     public static World Instance { get { return _instance; } }
-    public static GameObject[] BarnSpots() { return _barnSpots; }
+    public  GameObject[] HideSpots() { return _hideSpots; }
 }

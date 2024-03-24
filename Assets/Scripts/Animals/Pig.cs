@@ -58,11 +58,40 @@ public class Pig : MonoBehaviour
         coolDown = false;
     }
 
-   
+    private void Hide()
+    {
+        float dist = Mathf.Infinity;
+        Vector3 chosenSpot = Vector3.zero;
+        Vector3 chosenDir = Vector3.zero;
+        GameObject chosenGO = World.Instance.HideSpots()[0];
+
+        for (int i = 0; i < World.Instance.HideSpots().Length; i++)
+        {
+            Vector3 hideDir = World.Instance.HideSpots()[i].transform.position - _target.transform.position;
+            Vector3 hidePos = World.Instance.HideSpots()[i].transform.position + hideDir.normalized * 10;
+
+            if (Vector3.Distance(transform.position, hidePos) < dist)
+            {
+                chosenSpot = hidePos;
+                chosenDir = hideDir;
+                chosenGO = World.Instance.HideSpots()[i];
+                dist = Vector3.Distance(transform.position, hidePos);
+            }
+        }
+
+        Collider hideCol = chosenGO.GetComponent<Collider>();
+        Ray backray = new Ray(chosenSpot, -chosenDir.normalized);
+        RaycastHit hitInfo;
+        float distance = 100.0f;
+        hideCol.Raycast(backray, out hitInfo, distance);
+
+        Seek(hitInfo.point + chosenDir.normalized);
+
+    }
     private bool CanSeeMe()
     {
         Vector3 rayFromTarget = transform.position - _target.transform.position;
-        float lookAngle=Vector3.Angle(_target.transform.forward, rayFromTarget);
+        float lookAngle = Vector3.Angle(_target.transform.forward, rayFromTarget);
         if (lookAngle < 60)
         {
             return true;
@@ -82,7 +111,7 @@ public class Pig : MonoBehaviour
         }
         return false;
     }
-        private void Animation(GameObject target)
+    private void Animation(GameObject target)
     {
         if (Vector3.Distance(target.transform.position, transform.position) <= _stoppingDistance)
         {
