@@ -58,6 +58,7 @@ public class Pig : MonoBehaviour
         coolDown = false;
     }
 
+   
     private bool CanSeeMe()
     {
         Vector3 rayFromTarget = transform.position - _target.transform.position;
@@ -68,7 +69,20 @@ public class Pig : MonoBehaviour
         }
         return false;
     }
-    private void Animation(GameObject target)
+
+    private bool CanSeeTarget()
+    {
+        RaycastHit hitInfo;
+        Vector3 rayToTarget = _target.transform.position - transform.position;
+        float lookAngle = Vector3.Angle(transform.forward, rayToTarget);
+        if (lookAngle < 60 && Physics.Raycast(transform.position, rayToTarget, out hitInfo))
+        {
+            if (hitInfo.transform.gameObject.tag == "Player")
+                return true;
+        }
+        return false;
+    }
+        private void Animation(GameObject target)
     {
         if (Vector3.Distance(target.transform.position, transform.position) <= _stoppingDistance)
         {
