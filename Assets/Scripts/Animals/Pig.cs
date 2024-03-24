@@ -9,6 +9,7 @@ public class Pig : MonoBehaviour
     private float _stoppingDistance;
     [SerializeField] private GameObject _player;
     private int _invokeX = 2;
+    private GameObject _target;
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -57,6 +58,16 @@ public class Pig : MonoBehaviour
         coolDown = false;
     }
 
+    private bool CanSeeMe()
+    {
+        Vector3 rayFromTarget = transform.position - _target.transform.position;
+        float lookAngle=Vector3.Angle(_target.transform.forward, rayFromTarget);
+        if (lookAngle < 60)
+        {
+            return true;
+        }
+        return false;
+    }
     private void Animation(GameObject target)
     {
         if (Vector3.Distance(target.transform.position, transform.position) <= _stoppingDistance)
