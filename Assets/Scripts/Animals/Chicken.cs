@@ -27,7 +27,11 @@ public class Chicken : MonoBehaviour
         _agent.speed = 2.0f;
     }
 
-
+    private void Flee(Vector3 location)
+    {
+        Vector3 fleeVector = location - transform.position;
+        _agent.SetDestination(transform.position - fleeVector);
+    }
     private void Walk()
     {
         float _legsRotSpeed = 4.0f;
@@ -56,8 +60,8 @@ public class Chicken : MonoBehaviour
 
     void Update()
     {
+
        
-           StartCoroutine(Peck());
         
 
     }
