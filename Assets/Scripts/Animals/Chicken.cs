@@ -9,11 +9,13 @@ public class Chicken : MonoBehaviour
     private NavMeshAgent _agent;
     private Animate _animate;
     private float _playerSpeed;
-    private float _stoppingDistance;
     [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _food;
     [SerializeField] GameObject _FrontLegL, _FrontLegR;
+    private float _stoppingDistance;
     private int _invokeX = 2;
     private bool canPeck = true;
+    private bool _isWalking;
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -23,14 +25,28 @@ public class Chicken : MonoBehaviour
     void Start()
     {
         _playerSpeed = Player.Speed;
-        _stoppingDistance = 3.0f;
         _agent.speed = 2.0f;
+        _isWalking = false;
+        _stoppingDistance = 3.0f;
     }
-
+    void Seek(Vector3 location)
+    {
+        _animate._isWalking = true;
+        _agent.isStopped = false;
+        _agent.SetDestination(location);
+    }
     private void Flee(Vector3 location)
     {
         Vector3 fleeVector = location - transform.position;
         _agent.SetDestination(transform.position - fleeVector);
+        _isWalking = true;
+    }
+    private void Evade()
+    {
+        Vector3 targetDir = _player.transform.position - transform.position;
+        float lookAhead = targetDir.magnitude / (_playerSpeed + _agent.speed);
+        Flee(_player.transform.position + _player.transform.forward * lookAhead);
+
     }
     private void Walk()
     {
@@ -49,6 +65,15 @@ public class Chicken : MonoBehaviour
 
     }
 
+    private void GoToFood()
+    {
+        Seek(_food.transform.position);
+
+        if (_agent.remainingDistance < 2f)
+        {
+            StartCoroutine(Peck());
+        }
+    }
     private bool TargetInRange(GameObject target)
     {
         if (Vector3.Distance(transform.position, target.transform.position) < 10)
@@ -58,16 +83,39 @@ public class Chicken : MonoBehaviour
         return false;
     }
 
+
+    bool coolDown = false;
+    private void BehaviourCoolDown()
+    {
+        coolDown = false;
+    }
+
     void Update()
     {
-
-       
-        
+        if (!coolDown)
+        {
+            if (TargetInRange(_player))
+            {
+                Evade();
+                coolDown = true;
+                Debug.Log(name + " Evade invoked");
+                Invoke("BehaviourCoolDown", 8);
+            }
+            else
+            {
+                GoToFood();
+                coolDown = true;
+                Invoke("BehaviourCoolDown", 8);
+                Debug.Log(name + " GoToFood invoked");
+            }
+        }
+        Walk();
 
     }
 
     private IEnumerator Peck()
     {
+        _isWalking = false;
         canPeck = false;
         transform.eulerAngles = new Vector3(45f, transform.eulerAngles.y, transform.eulerAngles.z);
 

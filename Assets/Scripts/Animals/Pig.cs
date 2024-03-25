@@ -63,7 +63,6 @@ public class Pig : MonoBehaviour
         float dist = Mathf.Infinity;
         Vector3 chosenSpot = Vector3.zero;
         Vector3 chosenDir = Vector3.zero;
-        // GameObject chosenGO = World.Instance.HideSpots()[0];
 
         for (int i = 0; i < World.Instance.HideSpots().Length; i++)
         {
