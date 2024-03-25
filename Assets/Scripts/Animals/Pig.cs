@@ -8,12 +8,12 @@ public class Pig : MonoBehaviour
     private Animate _animate;
     private float _stoppingDistance;
     [SerializeField] private GameObject _player;
-    private int _invokeX = 2;
-    private GameObject _target;
+    GameObject chosenGO;
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
         _animate = GetComponent<Animate>();
+        chosenGO = World.Instance.HideSpots()[0];
     }
     void Start()
     {
@@ -63,11 +63,11 @@ public class Pig : MonoBehaviour
         float dist = Mathf.Infinity;
         Vector3 chosenSpot = Vector3.zero;
         Vector3 chosenDir = Vector3.zero;
-        GameObject chosenGO = World.Instance.HideSpots()[0];
+        // GameObject chosenGO = World.Instance.HideSpots()[0];
 
         for (int i = 0; i < World.Instance.HideSpots().Length; i++)
         {
-            Vector3 hideDir = World.Instance.HideSpots()[i].transform.position - _target.transform.position;
+            Vector3 hideDir = World.Instance.HideSpots()[i].transform.position - _player.transform.position;
             Vector3 hidePos = World.Instance.HideSpots()[i].transform.position + hideDir.normalized * 10;
 
             if (Vector3.Distance(transform.position, hidePos) < dist)
@@ -90,8 +90,8 @@ public class Pig : MonoBehaviour
     }
     private bool CanSeeMe()
     {
-        Vector3 rayFromTarget = transform.position - _target.transform.position;
-        float lookAngle = Vector3.Angle(_target.transform.forward, rayFromTarget);
+        Vector3 rayFromTarget = transform.position - _player.transform.position;
+        float lookAngle = Vector3.Angle(_player.transform.forward, rayFromTarget);
         if (lookAngle < 60)
         {
             return true;
@@ -102,11 +102,11 @@ public class Pig : MonoBehaviour
     private bool CanSeeTarget()
     {
         RaycastHit hitInfo;
-        Vector3 rayToTarget = _target.transform.position - transform.position;
+        Vector3 rayToTarget = _player.transform.position - transform.position;
         float lookAngle = Vector3.Angle(transform.forward, rayToTarget);
         if (lookAngle < 60 && Physics.Raycast(transform.position, rayToTarget, out hitInfo))
         {
-            if (hitInfo.transform.gameObject.tag == "Player")
+            if (hitInfo.transform.gameObject.CompareTag("Player"))
                 return true;
         }
         return false;
@@ -127,14 +127,23 @@ public class Pig : MonoBehaviour
     {
         if (!coolDown)
         {
-            if (!TargetInRange(_player))
+            if (CanSeeMe() && CanSeeTarget())
+            {
+                Hide();
+                coolDown = true;
+                Invoke("BehaviourCoolDown", 8);
+                Debug.Log(name + " Hide invoked");
+            }
+            else
             {
                 Wander();
                 coolDown = true;
-                Invoke("BehaviourCoolDown", 6f);
+                Debug.Log(name + " Wander invoked");
+                Invoke("BehaviourCoolDown", 4);
+
             }
 
         }
-        _animate.WalkAnimation();
+        Animation(chosenGO);
     }
 }
