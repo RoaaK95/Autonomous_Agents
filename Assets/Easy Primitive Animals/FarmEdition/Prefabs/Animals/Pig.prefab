@@ -749,6 +749,9 @@ GameObject:
   - component: {fileID: 495403447699483741}
   - component: {fileID: 54045971344457286}
   - component: {fileID: 136997627148833516}
+  - component: {fileID: 1220734285580108574}
+  - component: {fileID: 7280946592628537552}
+  - component: {fileID: 363458722554579972}
   m_Layer: 0
   m_Name: Pig
   m_TagString: Pig
@@ -822,6 +825,58 @@ CapsuleCollider:
   m_Height: 1.5928581
   m_Direction: 2
   m_Center: {x: -1.663597e-11, y: 0.5357764, z: -0.005405605}
+--- !u!195 &1220734285580108574
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495403447699483738}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &7280946592628537552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495403447699483738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e80eee1ac776574490adbf7ae7111e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+--- !u!114 &363458722554579972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 495403447699483738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63475bb77a534314f8a47a705d2d541e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isWalking: 0
+  _FrontLegL: {fileID: 495403447959310135}
+  _FrontLegR: {fileID: 495403447851900294}
+  _RearLegL: {fileID: 495403449018481476}
+  _RearLegR: {fileID: 495403449328665076}
 --- !u!1 &495403447740859083
 GameObject:
   m_ObjectHideFlags: 0
