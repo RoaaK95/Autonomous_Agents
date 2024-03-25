@@ -131,7 +131,7 @@ public class Pig : MonoBehaviour
                 Hide();
                 coolDown = true;
                 Debug.Log(name + " Hide invoked");
-                Invoke("BehaviourCoolDown", 8);
+                Invoke("BehaviourCoolDown", 12);
                 
             }
             else

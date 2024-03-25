@@ -1986,6 +1986,8 @@ GameObject:
   - component: {fileID: 9213206596740143703}
   - component: {fileID: 54186851546604756}
   - component: {fileID: 4209791718595274099}
+  - component: {fileID: 9106220307864570829}
+  - component: {fileID: 6353698832191012713}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Chicken
@@ -2059,6 +2061,44 @@ CapsuleCollider:
   m_Height: 0.6842258
   m_Direction: 1
   m_Center: {x: -0.0060105934, y: 0.3908741, z: 0.18479419}
+--- !u!195 &9106220307864570829
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213206596740143696}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &6353698832191012713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213206596740143696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f0755de2f64ae64b924ae3232e6ed5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _food: {fileID: 0}
+  _FrontLegL: {fileID: 951374651652537988}
+  _FrontLegR: {fileID: 1195996724157927784}
 --- !u!1 &9213206596849299574
 GameObject:
   m_ObjectHideFlags: 0
