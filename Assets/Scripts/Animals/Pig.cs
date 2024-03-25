@@ -82,7 +82,7 @@ public class Pig : MonoBehaviour
         Collider hideCol = chosenGO.GetComponent<Collider>();
         Ray backray = new Ray(chosenSpot, -chosenDir.normalized);
         RaycastHit hitInfo;
-        float distance = 100.0f;
+        float distance = 60.0f;
         hideCol.Raycast(backray, out hitInfo, distance);
 
         Seek(hitInfo.point + chosenDir.normalized);
@@ -131,16 +131,14 @@ public class Pig : MonoBehaviour
             {
                 Hide();
                 coolDown = true;
-                Invoke("BehaviourCoolDown", 8);
                 Debug.Log(name + " Hide invoked");
+                Invoke("BehaviourCoolDown", 8);
+                
             }
             else
             {
                 Wander();
-                coolDown = true;
                 Debug.Log(name + " Wander invoked");
-                Invoke("BehaviourCoolDown", 4);
-
             }
 
         }
