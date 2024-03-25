@@ -29,17 +29,13 @@ public class Chicken : MonoBehaviour
         _isWalking = false;
         _stoppingDistance = 3.0f;
     }
-    void Seek(Vector3 location)
-    {
-        _animate._isWalking = true;
-        _agent.isStopped = false;
-        _agent.SetDestination(location);
-    }
+
     private void Flee(Vector3 location)
     {
         Vector3 fleeVector = location - transform.position;
         _agent.SetDestination(transform.position - fleeVector);
         _isWalking = true;
+
     }
     private void Evade()
     {
@@ -67,9 +63,9 @@ public class Chicken : MonoBehaviour
 
     private void GoToFood()
     {
-        Seek(_food.transform.position);
-
-        if (_agent.remainingDistance < 2f)
+        _isWalking = true;
+        _agent.SetDestination(_food.transform.position);
+        if (_agent.remainingDistance <= _stoppingDistance)
         {
             StartCoroutine(Peck());
         }
@@ -104,11 +100,12 @@ public class Chicken : MonoBehaviour
             else
             {
                 GoToFood();
-                coolDown = true;
-                Invoke("BehaviourCoolDown", 8);
                 Debug.Log(name + " GoToFood invoked");
+
             }
         }
+
+
         Walk();
 
     }
@@ -119,10 +116,10 @@ public class Chicken : MonoBehaviour
         canPeck = false;
         transform.eulerAngles = new Vector3(45f, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(1f);
         canPeck = true;
     }
 }
