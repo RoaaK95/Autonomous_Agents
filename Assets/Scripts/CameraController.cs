@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
-    public Vector3 _offset= new Vector3(0,0,0);
-    private Vector3 _playerPos;
-    private void Awake()
+    private Vector3 _offset;
+    private float _smoothTransition = 0.5f;
+    
+    void Start()
     {
-        _playerPos = _player.transform.position;
+        _offset = transform.position - _player.transform.position;
         
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
-        transform.position = new Vector3(_playerPos.x, _playerPos.y, _playerPos.z) + _offset;
-        transform.rotation = Quaternion.identity;
+        Vector3 newPosition = _player.transform.position + _offset;
+        transform.position = Vector3.Slerp(transform.position, newPosition, _smoothTransition);
+        transform.LookAt(_player.transform);
+        Quaternion.LookRotation(newPosition);
+
     }
 }
