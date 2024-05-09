@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class Chicken : MonoBehaviour
 {
     private NavMeshAgent _agent;
-    private Animate _animate;
     private float _playerSpeed;
     [SerializeField] private GameObject _player;
     [SerializeField] private GameObject _food;
@@ -19,7 +18,6 @@ public class Chicken : MonoBehaviour
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _animate = GetComponent<Animate>();
     }
 
     void Start()
@@ -72,7 +70,7 @@ public class Chicken : MonoBehaviour
     }
     private bool TargetInRange(GameObject target)
     {
-        if (Vector3.Distance(transform.position, target.transform.position) < 10)
+        if (Vector3.Distance(transform.position, target.transform.position) < 8f)
         {
             return true;
         }
@@ -119,7 +117,7 @@ public class Chicken : MonoBehaviour
         yield return new WaitForSeconds(4f);
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(4f);
         canPeck = true;
     }
 }

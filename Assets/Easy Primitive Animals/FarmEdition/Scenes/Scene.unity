@@ -570,7 +570,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 68
+  field of view: 64
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -596,8 +596,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137977578}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.025739849, y: 0.9341196, z: -0.07931412, w: -0.34708402}
-  m_LocalPosition: {x: 13.375483, y: 7.390432, z: -1.4466972}
+  m_LocalRotation: {x: -0.24410911, y: 0.001165963, z: -0.0041453377, w: -0.96973825}
+  m_LocalPosition: {x: -2.0701764, y: 15.628509, z: -33.010326}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,13 +610,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137977578}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78e1270dc8731243877a40312d6a6cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 6638714619757978438}
-  _offset: {x: 0, y: 0, z: 0}
 --- !u!4 &139711235 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3497336257124647324, guid: 7d2fa0713f72e4540a45253647e16caf, type: 3}
@@ -9590,7 +9589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8794032723783023229, guid: 6f1ec9dd1febb2e45b5972f5088e150e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.15
+      value: 7.74
       objectReference: {fileID: 0}
     - target: {fileID: 8794032723783023229, guid: 6f1ec9dd1febb2e45b5972f5088e150e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9598,7 +9597,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8794032723783023229, guid: 6f1ec9dd1febb2e45b5972f5088e150e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.28
+      value: -2.72
       objectReference: {fileID: 0}
     - target: {fileID: 8794032723783023229, guid: 6f1ec9dd1febb2e45b5972f5088e150e, type: 3}
       propertyPath: m_LocalRotation.w

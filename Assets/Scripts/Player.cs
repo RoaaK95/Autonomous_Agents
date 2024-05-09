@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private static float _speed = 10.0f;
     [SerializeField] private float _rotSpeed = 100.0f;
     private float _xBound = 17.0f;
-    private float _zBound = 18.0f;
+    private float _zBound = 20.0f;
 
     void Update()
     {

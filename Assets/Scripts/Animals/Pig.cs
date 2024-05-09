@@ -43,15 +43,7 @@ public class Pig : MonoBehaviour
         Seek(worldTarget);
 
     }
-    private bool TargetInRange(GameObject target)
-    {
-        if (Vector3.Distance(transform.position, target.transform.position) < 10)
-        {
-            return true;
-        }
-        return false;
-    }
-
+   
     bool coolDown = false;
     private void BehaviourCoolDown()
     {
