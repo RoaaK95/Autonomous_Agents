@@ -4,6 +4,6 @@ Description: Using AI steering behaviors model to apply and control the movement
 Player: Farmer.  
 AI agents: Cows, Sheeps, Pigs, Chickens.  
 Behaviours explored: Seek, Flee, Pursue, Evade, Wander, Hide, other complex behaviours.  
-  
-GAME SCENE  ![Game_Scene](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/fc840cfb-5b46-43ba-9533-38372f50ff5f)
-SCENE VIEW  ![Scene](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/cd37ed9c-7d4e-4299-a6e4-444c6e761282)
+
+SCENE VIEW  ![Scene_View](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/a2cda885-fb57-4897-b2bc-2ab74b1f13b2)
+GAMEPLAY  [Auto_Agents_Project_vid.webm](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/e9a81f66-898f-4dbc-a81c-e8edf1f7d766)
