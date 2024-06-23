@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 public class Pig : MonoBehaviour
 {
     private NavMeshAgent _agent;
     private Animate _animate;
     private float _stoppingDistance;
     [SerializeField] private GameObject _player;
+    [SerializeField] private TextMeshProUGUI _text;
     GameObject chosenGO;
     void Awake()
     {
@@ -123,6 +125,7 @@ public class Pig : MonoBehaviour
                 Hide();
                 coolDown = true;
                 Debug.Log(name + " Hide invoked");
+                _text.text = "Hide";
                 Invoke("BehaviourCoolDown", 12);
                 
             }
@@ -130,6 +133,7 @@ public class Pig : MonoBehaviour
             {
                 Wander();
                 Debug.Log(name + " Wander invoked");
+                _text.text = "Wander";
             }
 
         }

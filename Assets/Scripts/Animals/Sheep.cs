@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 public class Sheep : MonoBehaviour
 {
     private NavMeshAgent _agent;
@@ -10,6 +11,7 @@ public class Sheep : MonoBehaviour
     private float _playerSpeed;
     private float _stoppingDistance;
     [SerializeField] private GameObject _player;
+    [SerializeField] private TextMeshProUGUI _text;
     private int _invokeX = 2;
 
     void Awake()
@@ -102,6 +104,7 @@ public class Sheep : MonoBehaviour
                 Wander();
                 coolDown = true;
                 Debug.Log(name + " Wander invoked");
+                _text.text = "Wander";
                 Invoke("BehaviourCoolDown", 8);
             }
             else
@@ -109,9 +112,10 @@ public class Sheep : MonoBehaviour
                 Pursue();
                 coolDown = true;
                 Debug.Log(name + " Pursue invoked");
+                _text.text = "Pursue";
                 Invoke("BehaviourCoolDown", 1f);
 
-            }
+            } 
 
         }
         Animation(_player);

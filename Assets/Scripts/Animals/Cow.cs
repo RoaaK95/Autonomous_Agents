@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class Cow : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class Cow : MonoBehaviour
     private Animate _animate;
     private float _stoppingDistance;
     [SerializeField] private GameObject _waterTrough;
+    [SerializeField] private TextMeshProUGUI _text;
     private int _invokeX = 2;
-
+    
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -85,6 +87,7 @@ public class Cow : MonoBehaviour
                 GoToWaterTrough();
                 coolDown = true;
                 Debug.Log(name + " Go to water invoked");
+                _text.text = "Seek";
                 Invoke("BehaviourCoolDown", 10);
 
             }
@@ -93,6 +96,7 @@ public class Cow : MonoBehaviour
                 Wander();
                 coolDown = true;
                 Debug.Log(name + " Wander invoked");
+                _text.text = "Wander";
                 Invoke("BehaviourCoolDown", 12);
 
             }

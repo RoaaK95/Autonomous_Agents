@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-
+using TMPro;
 public class Chicken : MonoBehaviour
 {
     private NavMeshAgent _agent;
@@ -15,6 +15,7 @@ public class Chicken : MonoBehaviour
     private int _invokeX = 2;
     private bool canPeck = true;
     private bool _isWalking;
+    [SerializeField] private TextMeshProUGUI _text;
     void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
@@ -93,12 +94,14 @@ public class Chicken : MonoBehaviour
                 Evade();
                 coolDown = true;
                 Debug.Log(name + " Evade invoked");
+                _text.text = "Evade";
                 Invoke("BehaviourCoolDown", 8);
             }
             else
             {
                 GoToFood();
                 Debug.Log(name + " GoToFood invoked");
+                _text.text = "Seek";
 
             }
         }
@@ -114,10 +117,10 @@ public class Chicken : MonoBehaviour
         canPeck = false;
         transform.eulerAngles = new Vector3(45f, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         transform.eulerAngles = new Vector3(0f, transform.eulerAngles.y, transform.eulerAngles.z);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         canPeck = true;
     }
 }
