@@ -5,6 +5,10 @@ Player: Farmer.
 AI agents: Cows, Sheeps, Pigs, Chickens.  
 Behaviours explored: Seek, Flee, Pursue, Evade, Wander, Hide, other complex behaviours.  
 
-SCENE VIEW  ![Scene_View](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/a2cda885-fb57-4897-b2bc-2ab74b1f13b2)  
+Note: Turn on the script "Camera Controller" attached to the Main Camera to experience the player 3rd person camera.    
 
-[![GAMEPLAY]([https://i.stack.imgur.com/Vp2cE.png](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/1eec6a60-3c58-43eb-84a3-d0cb464ba2ff))](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/e9a81f66-898f-4dbc-a81c-e8edf1f7d766) 
+SCENE VIEW [SceneView](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/0cf3565b-49be-4711-91c6-ac7b4db1338c)
+
+
+[![GAMEPLAY]
+[Final_1.webm](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/6a8fa047-e3ec-4d05-a3a6-eb1c7a05e168)
