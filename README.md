@@ -2,14 +2,25 @@
 ## About
 - **Project Name:** Animal Farm  
 - **Engine:** UNITY ver 2022.3.17f1  
-- For a detailed explanation of this project, [Click here](https://roaak95.github.io/Portfolio/Projects/Animal_Farm.html).  
+- For a detailed explanation of this project, [Click here](https://roaak95.github.io/Portfolio/Projects/Animal_Farm.html).
+- 
 ## Description  
 Using AI steering behaviors model to apply and control the movement of farm animals.  
-## Details
-**Player:** Farmer.  
-**AI agents:** - Cows - Sheeps - Pigs - Chickens.  
+
+### Details
+**Player:** Farmer  
+**AI agents:** 
+- Cows
+- Sheeps
+- Pigs
+- Chickens  
 ### Behaviours Explored   
-- Seek - Flee - Pursue - Evade - Wander - Hide -Other complex behaviours
+- Seek
+- Flee
+- Pursue
+- Evade
+- Wander
+- Hide -Other complex behaviours
 
 ## NOTE  
 Turn on the **"Camera Controller"** script attached to the Main Camera to experience the 3rd person camera.    
