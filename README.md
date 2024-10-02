@@ -9,7 +9,7 @@ Using AI steering behaviors model to apply and control the movement of farm anim
 
 ### Details
 **Player:**  
-- Farmer  
+- Farmer    
 **AI agents:** 
 - Cows
 - Sheeps
