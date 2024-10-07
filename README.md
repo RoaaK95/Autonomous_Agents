@@ -23,8 +23,8 @@ Using AI steering behaviors model to control the movement of farm animals.
 - Pursue
 - Evade
 - Wander
-- Hide
--Other complex behaviours
+- Hide  
+- Other complex behaviours
 
 ## NOTE  
 Turn on the **"Camera Controller"** script attached to the Main Camera to experience third-person camera.    
