@@ -1,7 +1,7 @@
 # Autonomous_Agents  
 ## About
 - **Project Name:** Animal Farm  
-- **Engine:** UNITY ver 2022.3.17f1  
+- **Engine:** Unity, version 2022.3.17f1  
 - For a detailed explanation of this project, [click here](https://roaak95.github.io/Portfolio/Projects/Animal_Farm.html).
   
 ## Description  
@@ -26,14 +26,14 @@ Using AI steering behaviors model to control the movement of farm animals.
 - Hide  
 - Other complex behaviours
 
-## NOTE  
+## Note  
 Turn on the **"Camera Controller"** script attached to the Main Camera to experience third-person camera.    
 
-## SCENE VIEW  
+## Scene View 
 
 ![SceneView](https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/adc80379-07c9-4eec-908f-57e3fc73cd06)    
 
-## GAME VIEW  
+## Game View 
 
 https://github.com/RoaaK95/Autonomous_Agents/assets/101067760/f06f9e90-3c2d-4b90-bfd8-2c4d2bf01631
 
