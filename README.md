@@ -2,7 +2,7 @@
 ## About
 - **Project Name:** Animal Farm  
 - **Engine:** Unity, version 2022.3.17f1  
-- For a detailed explanation of this project, [click here](https://roaak95.github.io/Portfolio/Projects/Animal_Farm.html).
+- For a detailed explanation of this project, [click here](https://roaakhaldoon.net/Projects/Animal_Farm.html).
   
 ## Description  
 Using AI steering behaviors model to control the movement of farm animals.  
